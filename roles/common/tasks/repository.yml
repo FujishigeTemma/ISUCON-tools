@@ -1,0 +1,14 @@
+---
+- name: add git settings
+  copy:
+    src: .gitconfig
+    dest: /home/isucon/.gitconfig
+    owner: isucon
+    group: isucon
+
+- name: clone repo
+  become_user: isucon
+  git:
+    repo: "{{ repository.remote }}"
+    dest: "{{ repository.dest }}"
+    accept_hostkey: yes

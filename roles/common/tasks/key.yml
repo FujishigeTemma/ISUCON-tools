@@ -1,0 +1,11 @@
+---
+- name: copy credentials
+  copy:
+    src: "{{ item[1] }}"
+    dest: "{{ item[0].dest }}"
+    owner: "{{ item[0].user }}"
+    group: "{{ item[0].user }}"
+    mode: '600'
+  with_nested: 
+    - [{user: "root", dest: "/root/.ssh/"}, {user: "isucon", dest: "/home/isucon/.ssh/"}]
+    - ["id_ed25519", "id_ed25519.pub"]

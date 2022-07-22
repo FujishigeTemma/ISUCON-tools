@@ -1,0 +1,12 @@
+---
+- name: "roles/commands/tasks/main.yml: import_tasks alias.yml"
+  import_tasks: alias.yml
+
+- name: "roles/commands/tasks/main.yml: import_tasks command.yml"
+  import_tasks: command.yml
+
+- name: "roles/commands/tasks/main.yml: import_tasks apt.yml"
+  import_tasks: apt.yml
+
+- name: "roles/commands/tasks/main.yml: import_tasks alp.yml"
+  import_tasks: alp.yml

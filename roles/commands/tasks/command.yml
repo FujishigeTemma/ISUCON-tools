@@ -1,0 +1,16 @@
+---
+- name: copy shell scripts
+  copy:
+    src: cmd
+    dest: /home/isucon/
+    owner: isucon
+    group: isucon
+    mode: '777'
+
+- name: add to bashrc
+  blockinfile:
+    path: /home/isucon/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK [shell script]"
+    block: |
+      source /home/isucon/cmd/*
+      source /home/isucon/webapp/deploy.sh

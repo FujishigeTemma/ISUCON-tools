@@ -1,0 +1,44 @@
+# This is Git's per-user configuration file.
+[user]
+    name = ISUCON12
+    email = lelouch.vi@britann.ia
+
+[push]
+    autoSetupRemote = True
+
+[pull]
+    rebase = false
+
+[merge]
+    conflictStyle = diff3
+
+[core]
+    pager = delta
+    editor = nano
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
+[alias]
+    s = switch
+    a = add -A
+    cm = commit -m
+    fpush = push --force-with-lease
+    lg = log --stat --graph --decorate=full
+    gl = config --global -l
+    am = commit --ammend --no-edit
+
+[init]
+    defaultBranch = main
+
+[help]
+    autocorrect = 1

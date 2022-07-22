@@ -1,0 +1,13 @@
+- name: start pprotein
+  systemd:
+    name: pprotein
+    enabled: yes
+    state: started
+    daemon_reload: yes
+
+- name: start pprotein-agent
+  systemd:
+    name: pprotein-agent
+    enabled: yes
+    state: started
+    daemon_reload: yes

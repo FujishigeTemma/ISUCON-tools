@@ -1,0 +1,9 @@
+---
+- name: set aliases
+  blockinfile:
+    path: /home/isucon/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK [alias]"
+    block: |
+      alias sc='sudo systemctl'
+      alias jc='sudo journalctl'
+      alias jcf='sudo journalctl -f -u'

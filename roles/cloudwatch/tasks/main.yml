@@ -1,0 +1,38 @@
+---
+- name: copy credentials
+  copy:
+    src: credentials
+    dest: /root/.aws/
+
+- name: download cloudwatch agent package
+  get_url:
+    url: https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+    dest: /tmp/amazon-cloudwatch-agent.deb
+  register: cloudwatch_agent
+
+- name: install cloudwatch-agent
+  apt:
+    deb: /tmp/amazon-cloudwatch-agent.deb
+  when: cloudwatch_agent.changed
+
+- name: update agent settings
+  template:
+    src: amazon-cloudwatch-agent-schema.json.j2
+    dest: /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent-schema.json
+  register: cloudwatch_agent_settings
+
+- name: fetch updated config
+  shell: |
+    /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+      -a fetch-config \
+      -m ec2 \
+      -s \
+      -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent-schema.json
+  when: cloudwatch_agent_settings.changed
+
+- name: start agent
+  shell: |
+    /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+      -a start \
+      -m ec2
+  when: cloudwatch_agent_settings.changed

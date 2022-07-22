@@ -1,0 +1,19 @@
+repository:
+  remote: git@github.com:FujishigeTemma/isucon12-qualify.git
+  dest: /home/isucon/repo
+
+github_users:
+  - "sapphi-red"
+  - "ryoha000"
+  - "FujishigeTemma"
+
+cloudwatch:
+  app_name: isucon.go.service
+
+login:
+  username: "isucon"
+  password: "isucon"
+
+systemd:
+  services:
+    - pprotein-agent

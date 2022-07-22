@@ -1,0 +1,11 @@
+[all]
+s[1:3].isucon.local
+
+[app]
+s1.isucon.local
+
+[db]
+s2.isucon.local
+
+[lb]
+s3.isucon.local

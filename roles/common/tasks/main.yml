@@ -1,0 +1,14 @@
+---
+- name: "roles/common/tasks/main.yml: import_tasks hostname.yml"
+  import_tasks: hostname.yml
+
+- name: "roles/common/tasks/main.yml: import_tasks key.yml"
+  import_tasks: key.yml
+
+- name: "roles/common/tasks/main.yml: import_tasks repository.yml"
+  import_tasks: repository.yml
+
+
+
+
+

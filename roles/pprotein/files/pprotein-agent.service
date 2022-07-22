@@ -1,0 +1,9 @@
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/pprotein-agent
+Environment=GIT_REPO_DIR=/home/isucon/webapp
+
+[Install]
+WantedBy=multi-user.target

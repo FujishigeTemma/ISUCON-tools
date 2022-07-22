@@ -1,0 +1,14 @@
+---
+- name: install tools via apt
+  apt:
+    update_cache: yes
+    pkg:
+      - htop
+      - dstat
+      - netdata
+      - graphviz
+      - nano
+      - tree
+      - percona-toolkit
+      - rsync
+      - unzip

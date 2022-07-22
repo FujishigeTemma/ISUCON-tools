@@ -1,0 +1,23 @@
+---
+- name: download go binary
+  get_url:
+    url: https://go.dev/dl/go1.18.4.linux-amd64.tar.gz
+    checksum: sha256:c9b099b68d93f5c5c8a8844a89f8db07eaa58270e3a1e01804f17f4cf8df02f5
+    dest: /tmp/go1.18.4.linux-amd64.tar.gz
+  register: go
+
+- name: install go
+  unarchive:
+    remote_src: yes
+    src: /tmp/go1.18.4.linux-amd64.tar.gz
+    dest: /opt/
+  when: go.changed
+
+- name: add to PATH
+  blockinfile:
+    path: /home/isucon/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    block: |
+      export GOROOT=/opt/go
+      export GOPATH=$HOME/go
+      export PATH=$GOROOT/bin:$GOPATH/bin:$PATH

@@ -1,0 +1,26 @@
+---
+- name: download pprotein binary
+  get_url:
+    url: https://github.com/kaz/pprotein/releases/download/v1.1.0/pprotein_1.1.0_linux_amd64.tar.gz
+    dest: /tmp/pprotein_1.1.0_linux_amd64.tar.gz
+  register: pprotein
+
+- name: install pprotein
+  unarchive:
+    remote_src: yes
+    src: /tmp/pprotein_1.1.0_linux_amd64.tar.gz
+    dest: /usr/local/bin/
+  when: pprotein.changed
+
+- name: install pprotein service
+  copy:
+    src: pprotein.service
+    dest: /etc/systemd/system/pprotein.service
+  when: run_pprotein_server
+  notify: start pprotein
+
+- name: install pprotein-agent service
+  copy:
+    src: pprotein-agent.service
+    dest: /etc/systemd/system/pprotein-agent.service
+  notify: start pprotein-agent

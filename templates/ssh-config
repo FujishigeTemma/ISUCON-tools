@@ -1,0 +1,35 @@
+Host bastion
+    Hostname bastion.isucon.local
+    Port <port>
+    User <username>
+
+Host s1
+    Hostname s1.isucon.local
+    User isucon
+    LocalForward 20001 localhost:19999 # NetData
+    LocalForward 9000 localhost:9000   # pprotein
+Host s2
+    Hostname s2.isucon.local
+    User isucon
+    LocalForward 20002 localhost:19999 # NetData
+Host s3
+    Hostname s3.isucon.local
+    User isucon
+    LocalForward 20003 localhost:19999 # NetData
+
+Match User isucon
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+    StrictHostKeyChecking no
+    # ProxyJump bastion
+
+Host *
+    TCPKeepAlive yes
+    ServerAliveInterval 60
+
+# Host ホスト名
+#     ProxyJump    踏み台のホスト名
+#     HostName     ドメイン/IPアドレス
+#     User         ユーザー名
+#     Port         ポート番号
+#     LocalForward local:port:remote:port

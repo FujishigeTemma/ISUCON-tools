@@ -1,0 +1,9 @@
+- name: 1. Install
+  hosts: all
+  become: true
+  roles:
+    - common
+    - commands
+    - go
+    - pprotein
+    - cloudwatch
