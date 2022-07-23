@@ -8,7 +8,7 @@ github_users:
   - "FujishigeTemma"
 
 cloudwatch:
-  app_name: isucon.go.service
+  app_name: isucon.service
 
 login:
   username: "isucon"

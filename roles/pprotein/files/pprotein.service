@@ -2,6 +2,9 @@
 After=network.target
 
 [Service]
+User=isucon
+Group=isucon
+WorkingDirectory=/home/isucon
 ExecStart=/usr/local/bin/pprotein
 
 [Install]

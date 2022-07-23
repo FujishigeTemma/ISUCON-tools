@@ -2,6 +2,8 @@
 After=network.target
 
 [Service]
+User=isucon
+Group=isucon
 ExecStart=/usr/local/bin/pprotein-agent
 Environment=GIT_REPO_DIR=/home/isucon/webapp
 
