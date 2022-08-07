@@ -1,9 +1,4 @@
 ---
-- name: copy credentials
-  copy:
-    src: credentials
-    dest: /root/.aws
-
 - name: download cloudwatch agent package
   get_url:
     url: https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
@@ -14,6 +9,11 @@
   apt:
     deb: /tmp/amazon-cloudwatch-agent.deb
   when: cloudwatch_agent.changed
+
+- name: copy credentials
+  copy:
+    src: credentials
+    dest: /home/cwagent/.aws/
 
 - name: update agent settings
   template:

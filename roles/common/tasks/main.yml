@@ -8,7 +8,8 @@
 - name: "roles/common/tasks/main.yml: import_tasks repository.yml"
   import_tasks: repository.yml
 
-
+- name: "roles/common/tasks/main.yml: import_tasks log-files.yml"
+  import_tasks: log-files.yml
 
 
 
