@@ -7,3 +7,4 @@
       alias sc='sudo systemctl'
       alias jc='sudo journalctl'
       alias jcf='sudo journalctl -f -u'
+      alias rt='exec $SHELL -l'

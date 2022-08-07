@@ -1,6 +1,11 @@
 max_connections = 1024
 
+# (until MySQL 5.7)
 query_cache_type = ON
+
+# 内部一時テーブルのサイズ
+tmp_table_size = 64M
+max_heap_table_size = 64M
 
 # innoDB全体で一つ生成されるグローバルバッファ(別鯖なら搭載メモリの80%、多ければ多いほど)
 innodb_buffer_pool_size = 1G
@@ -24,7 +29,10 @@ innodb_doublewrite = OFF
 innodb_flush_method = O_DIRECT
 
 # ログの非同期flash
-innodb_flush_log_at_trx_commit = 2
+innodb_flush_log_at_trx_commit = 0
+
+# flush log at each N sec
+innodb_flush_log_at_timeout = 3
 
 # バイナリログの無効化
 disable-log-bin = 1

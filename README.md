@@ -17,7 +17,6 @@
 | command    | function                      |
 | ---------- | ----------------------------- |
 | `diagnose` | インスタンスのスペックやパラメーターに関する各種情報の表示 |
-|      `gather`      |                               |
 
 ## alias
 | alias | full command      | memo             |
@@ -25,10 +24,9 @@
 | `sc`  | `systemctl`       |                  |
 | `jc`  | `jounalctl`       |                  |
 | `jcf` | `jounalctl -f -u` | `-u, --unit=UNIT|PATTERN`: `jcf nginx` |
-|       |                   |                  |
+| `rt`  | `exec $SHELL -l`  |                  |
 
 ### git
 | alias | full command                         | memo |
 | ----- | ------------------------------------ | ---- |
 | `lg ` | `log --stat --graph --decorate=full` |      |
-|       |                                      |      |

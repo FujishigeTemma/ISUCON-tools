@@ -1,0 +1,10 @@
+---
+- name: create log files
+  file:
+    path: "{{ item }}"
+    owner: isucon
+    group: isucon
+    mode: "777"
+  loop:
+    - "/var/log/nginx/access.log"
+    - "/var/log/mysql/mysql-slow.log"
