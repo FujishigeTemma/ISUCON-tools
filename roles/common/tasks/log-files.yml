@@ -1,10 +1,26 @@
 ---
+- name: ensure log file directories
+  file:
+    path: "{{ item }}"
+    owner: isucon
+    group: isucon
+    state: directory
+    recurse: yes
+    mode: "777"
+  loop:
+    - "/var/log/nginx"
+    - "/var/log/mysql"
+    - "/var/log/{{ systemd.app }}"
+
 - name: create log files
   file:
     path: "{{ item }}"
     owner: isucon
     group: isucon
+    state: touch
     mode: "777"
   loop:
     - "/var/log/nginx/access.log"
     - "/var/log/mysql/mysql-slow.log"
+    - "/var/log/{{ systemd.app }}/stdout.log"
+    - "/var/log/{{ systemd.app }}/stderr.log"

@@ -12,8 +12,11 @@
 
 - name: copy credentials
   copy:
-    src: credentials
-    dest: /home/cwagent/.aws/
+    src: "{{ item }}"
+    dest: /root/.aws/
+  loop:
+    - config
+    - credentials
 
 - name: update agent settings
   template:
