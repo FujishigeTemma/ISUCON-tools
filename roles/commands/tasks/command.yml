@@ -13,4 +13,4 @@
     marker: "# {mark} ANSIBLE MANAGED BLOCK [shell script]"
     block: |
       source /home/isucon/cmd/*
-      source /home/isucon/webapp/deploy.sh
+      source /home/isucon/webapp/commands.sh

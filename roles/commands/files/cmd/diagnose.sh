@@ -2,7 +2,7 @@
 
 function diagnose () {
   echo "Hostname: $(hostname)"
-  echo "Region: $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed -e 's/.$//g')"
+  # echo "Region: $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone | sed -e 's/.$//g')"
   echo "IP: $(ip -4 -o addr | awk '/scope global/ {print $4}')"
   source /etc/os-release && echo "OS: $NAME $VERSION"
   echo "Kernel: $(uname -r)"
