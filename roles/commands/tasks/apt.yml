@@ -5,7 +5,7 @@
     pkg:
       - htop
       - dstat
-      - netdata
+      # - netdata
       - graphviz
       - nano
       - tree

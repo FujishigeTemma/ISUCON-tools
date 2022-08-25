@@ -10,7 +10,6 @@
   loop:
     - "/var/log/nginx"
     - "/var/log/mysql"
-    - "/var/log/{{ systemd.app }}"
 
 - name: create log files
   file:
@@ -22,5 +21,3 @@
   loop:
     - "/var/log/nginx/access.log"
     - "/var/log/mysql/mysql-slow.log"
-    - "/var/log/{{ systemd.app }}/stdout.log"
-    - "/var/log/{{ systemd.app }}/stderr.log"
