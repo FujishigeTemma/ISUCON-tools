@@ -8,5 +8,11 @@
 - name: "roles/commands/tasks/main.yml: import_tasks apt.yml"
   import_tasks: apt.yml
 
+- name: "roles/commands/tasks/main.yml: import_tasks delta.yml"
+  import_tasks: delta.yml
+
 - name: "roles/commands/tasks/main.yml: import_tasks alp.yml"
   import_tasks: alp.yml
+
+- name: "roles/commands/tasks/main.yml: import_tasks slp.yml"
+  import_tasks: slp.yml
