@@ -1,0 +1,49 @@
+---
+- name: Uninstall old versions
+  apt:
+    pkg:
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd
+      - runc
+    state: absent
+
+- name: Install required system packages
+  apt:
+    pkg:
+      - ca-certificates
+      - curl
+      - gnupg2
+      - lsb-release
+    state: latest
+    update_cache: true
+
+- name: Ensure keyring dir exists
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+
+- name: Add Docker GPG apt Key
+  get_url: 
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /tmp/docker-archive-keyring.gpg
+    
+- name: Unpack gpg key
+  shell: yes | gpg --dearmor -o /etc/apt/keyrings/docker.gpg /tmp/docker-archive-keyring.gpg
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable
+    state: present
+    update_cache: yes
+
+- name: Update apt and install docker-ce
+  apt:
+    pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+    state: latest
+    update_cache: true

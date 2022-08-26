@@ -1,0 +1,19 @@
+---
+- name: Run phpmyadmin container
+  docker_container:
+    name: phpmyadmin
+    image: phpmyadmin:latest
+    state: present
+    restart: yes
+    ports:
+      - "9090:80"
+    env:
+      PMA_ARBITRARY: 1
+
+- name: Stop phpmyadmin container
+  docker_container:
+    name: phpmyadmin
+    state: absent
+  tags:
+    - never
+    - cleanup

@@ -18,6 +18,13 @@ go:
 pprotein:
   version: "1.2.1"
 
+pma:
+  version: "5.2.0"
+
+mysql:
+  user: root
+  password: password
+
 systemd:
   app: isuconquest.service
   services:

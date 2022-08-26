@@ -15,10 +15,23 @@
     src: pprotein.service
     dest: /etc/systemd/system/pprotein.service
   when: run_pprotein_server
-  notify: start pprotein
+  notify: ensure pprotein enabled
 
 - name: install pprotein-agent service
   copy:
     src: pprotein-agent.service
     dest: /etc/systemd/system/pprotein-agent.service
-  notify: start pprotein-agent
+  notify: ensure pprotein-agent enabled
+
+- name: disable pprotein service
+  notify: ensure pprotein disabled
+  when: run_pprotein_server
+  tags: 
+    - nerver
+    - cleanup
+
+- name: disable pprotein-agent service
+  notify: ensure pprotein-agent disabled
+  tags: 
+    - nerver
+    - cleanup

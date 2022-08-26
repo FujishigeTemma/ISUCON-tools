@@ -5,5 +5,8 @@
     - common
     - commands
     - go
-    # - monitor
+    - monitor
     - pprotein
+    # - docker
+    # - phpmyadmin # depends on docker
+    - after-install-msg

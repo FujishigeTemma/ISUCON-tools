@@ -1,13 +1,13 @@
 - name: TODO(1/2)
   debug:
-    msg: |
-      mkdir -p ***
-      cp -r ***
-      gather
-      git add -A && git commit -m ":seedling:init" && git push
-      mv /home/isucon/webapp /home/isucon/webapp.bk
-      mv /home/isucon/repo /home/isucon/webapp
+    msg:
+      - mkdir -p ***
+      - cp -r ***
+      - gather
+      - git add -A && git commit -m ":seedling:init" && git push
+      - mv /home/isucon/webapp /home/isucon/webapp.bk
+      - mv /home/isucon/repo /home/isucon/webapp
 - name: TODO(2/2)
   debug:
-    msg: |
-      Add pprotein settings.
+    msg:
+      - Add pprotein settings.

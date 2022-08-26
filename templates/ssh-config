@@ -22,6 +22,7 @@ Match User isucon
     IdentitiesOnly yes
     StrictHostKeyChecking no
     ProxyCommand sh -c "ssh -W $(/bin/cat /etc/hosts | grep %h | awk '{print $1}'):%p bastion"
+    UserKnownHostsFile /dev/null
 
 Host *
     TCPKeepAlive yes

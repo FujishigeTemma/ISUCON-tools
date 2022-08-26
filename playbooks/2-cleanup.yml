@@ -1,1 +1,14 @@
-# 各ロールの中に書いたのを呼び出す(tags?)
+- name: 2. Cleanup
+  hosts: all
+  become: true
+  roles:
+    - common
+    - commands
+    - go
+    - monitor
+    - pprotein
+    # - phpmyadmin # should be executed before docker
+    # - docker
+    - after-cleanup-msg
+  tags:
+    - cleanup

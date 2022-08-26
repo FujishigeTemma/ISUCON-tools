@@ -1,6 +1,7 @@
 - name: TODO
   debug:
-    msg: |
-      Remove debug/monitor code from app.
-      Stop slow query log.
-      Perform a restart test.
+    msg:
+      - Remove debug/monitor code from app.
+      - Stop slow query log.
+      - Stop access log.
+      - Perform a restart test.
