@@ -1,5 +1,5 @@
 repository:
-  remote: git@github.com:FujishigeTemma/isucon12-qualify-extended.git
+  remote: git@github.com:FujishigeTemma/isucon12-final.git
   dest: /home/isucon/repo
 
 github_users:

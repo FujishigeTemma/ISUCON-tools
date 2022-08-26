@@ -1,0 +1,6 @@
+- name: TODO
+  debug:
+    msg: |
+      Remove debug/monitor code from app.
+      Stop slow query log.
+      Perform a restart test.
