@@ -6,22 +6,22 @@ Host bastion
 Host s1
     Hostname s1.isucon.local
     User isucon
-    LocalForward 20001 localhost:19999 # NetData
     LocalForward 9000 localhost:9000   # pprotein
 Host s2
     Hostname s2.isucon.local
     User isucon
-    LocalForward 20002 localhost:19999 # NetData
 Host s3
     Hostname s3.isucon.local
     User isucon
-    LocalForward 20003 localhost:19999 # NetData
+Host bench
+    Hostname bench.isucon.local
+    User ubuntu
 
 Match User isucon
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
     StrictHostKeyChecking no
-    # ProxyJump bastion
+    ProxyCommand sh -c "ssh -W $(/bin/cat /etc/hosts | grep %h | awk '{print $1}'):%p bastion"
 
 Host *
     TCPKeepAlive yes
