@@ -1,0 +1,6 @@
+- name: ensure netdata enabled
+  systemd:
+    name: netdata
+    enabled: yes
+    state: started
+    daemon_reload: yes

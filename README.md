@@ -11,7 +11,7 @@
 0. `export ANSIBLE_VAULT_PASSWORD_FILE=./vault_pass.txt`
 1. setup vars
 2. `ansible-playbook 1-install.yml`
-3. `ansible-playbook 2-cleanup.yml`
+3. `ansible-playbook 2-cleanup.yml --tags "cleanup"`
 
 ## commands
 | command    | function                      |

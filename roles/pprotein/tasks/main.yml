@@ -23,15 +23,21 @@
     dest: /etc/systemd/system/pprotein-agent.service
   notify: ensure pprotein-agent enabled
 
-- name: disable pprotein service
-  notify: ensure pprotein disabled
-  when: run_pprotein_server
+- name: ensure pprotein disabled
+  systemd:
+    name: pprotein
+    enabled: no
+    state: stopped
+  ignore_errors: true
   tags: 
-    - nerver
+    - never
     - cleanup
 
-- name: disable pprotein-agent service
-  notify: ensure pprotein-agent disabled
+- name: ensure pprotein-agent disabled
+  systemd:
+    name: pprotein-agent
+    enabled: no
+    state: stopped
   tags: 
-    - nerver
+    - never
     - cleanup

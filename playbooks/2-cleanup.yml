@@ -10,5 +10,3 @@
     # - phpmyadmin # should be executed before docker
     # - docker
     - after-cleanup-msg
-  tags:
-    - cleanup

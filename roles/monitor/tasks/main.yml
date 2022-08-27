@@ -1,0 +1,19 @@
+---
+- name: get kickstart script
+  get_url:
+    url: https://my-netdata.io/kickstart.sh
+    dest: /tmp/kickstart.sh
+
+- name: install netdata
+  shell: sh /tmp/netdata-kickstart.sh --claim-token {{ netdata_secret }} --claim-url https://app.netdata.cloud
+  ignore_errors: true
+  notify: ensure netdata enabled
+
+- name: ensure netdata disabled
+  systemd:
+    name: netdata
+    enabled: no
+    state: stopped
+  tags:
+    - never
+    - cleanup

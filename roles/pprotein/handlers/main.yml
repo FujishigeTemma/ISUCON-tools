@@ -11,15 +11,3 @@
     enabled: yes
     state: started
     daemon_reload: yes
-
-- name: ensure pprotein disabled
-  systemd:
-    name: pprotein
-    enabled: no
-    state: stopped
-
-- name: ensure pprotein-agent disabled
-  systemd:
-    name: pprotein-agent
-    enabled: no
-    state: stopped

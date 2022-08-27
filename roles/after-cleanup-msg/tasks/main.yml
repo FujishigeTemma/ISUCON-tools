@@ -5,3 +5,7 @@
       - Stop slow query log.
       - Stop access log.
       - Perform a restart test.
+      - Dump pprotein database.
+  tags:
+    - never
+    - cleanup
