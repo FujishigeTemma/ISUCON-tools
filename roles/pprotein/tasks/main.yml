@@ -1,13 +1,13 @@
 ---
 - name: download pprotein binary
   get_url:
-    url: "https://github.com/kaz/pprotein/releases/download/{{ pprotein.version }}/pprotein_{{ pprotein.version }}_linux_amd64.tar.gz"
-    dest: "/tmp/pprotein_{{ pprotein.version }}_linux_amd64.tar.gz"
+    url: "https://github.com/kaz/pprotein/releases/download/{{ pprotein.version }}/pprotein_{{ pprotein.version }}_linux_{{ machine.arch }}.tar.gz"
+    dest: "/tmp/pprotein_{{ pprotein.version }}_linux_{{ machine.arch }}.tar.gz"
 
 - name: install pprotein
   unarchive:
     remote_src: yes
-    src: "/tmp/pprotein_{{ pprotein.version }}_linux_amd64.tar.gz"
+    src: "/tmp/pprotein_{{ pprotein.version }}_linux_{{ machine.arch }}.tar.gz"
     dest: /usr/local/bin/
 
 - name: install pprotein service
@@ -29,7 +29,7 @@
     enabled: no
     state: stopped
   ignore_errors: true
-  tags: 
+  tags:
     - never
     - cleanup
 
@@ -38,6 +38,6 @@
     name: pprotein-agent
     enabled: no
     state: stopped
-  tags: 
+  tags:
     - never
     - cleanup

@@ -1,13 +1,13 @@
 ---
 - name: download alp binary
   get_url:
-    url: https://github.com/tkuchiki/alp/releases/download/v1.0.10/alp_linux_amd64.tar.gz
-    dest: /tmp/alp_linux_amd64.tar.gz
+    url: https://github.com/tkuchiki/alp/releases/download/v{{ alp.version }}/alp_linux_{{ machine.arch }}.tar.gz
+    dest: /tmp/alp_linux_{{ machine.arch }}.tar.gz
   register: install_alp
 
 - name: install alp
   unarchive:
     remote_src: yes
-    src: /tmp/alp_linux_amd64.tar.gz
+    src: /tmp/alp_linux_{{ machine.arch }}.tar.gz
     dest: /usr/local/bin/
   when: install_alp.changed

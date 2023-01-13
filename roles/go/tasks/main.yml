@@ -1,14 +1,14 @@
 ---
 - name: download go binary
   get_url:
-    url: "https://go.dev/dl/go{{ go.version }}.linux-amd64.tar.gz"
+    url: "https://go.dev/dl/go{{ go.version }}.linux-{{ machine.arch }}.tar.gz"
     checksum: "sha256:{{ go.checksum }}"
-    dest: "/tmp/go{{ go.version }}.linux-amd64.tar.gz"
+    dest: "/tmp/go{{ go.version }}.linux-{{ machine.arch }}.tar.gz"
 
 - name: install go
   unarchive:
     remote_src: yes
-    src: "/tmp/go{{ go.version }}.linux-amd64.tar.gz"
+    src: "/tmp/go{{ go.version }}.linux-{{ machine.arch }}.tar.gz"
     dest: /opt/
 
 - name: add to PATH

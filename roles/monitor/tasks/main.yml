@@ -2,7 +2,7 @@
 - name: get kickstart script
   get_url:
     url: https://my-netdata.io/kickstart.sh
-    dest: /tmp/kickstart.sh
+    dest: /tmp/netdata-kickstart.sh
 
 - name: install netdata
   shell: sh /tmp/netdata-kickstart.sh --claim-token {{ netdata_secret }} --claim-url https://app.netdata.cloud

@@ -1,13 +1,13 @@
 ---
 - name: download slp binary
   get_url:
-    url: https://github.com/tkuchiki/slp/releases/download/v0.1.2/slp_linux_amd64.tar.gz
-    dest: /tmp/slp_linux_amd64.tar.gz
+    url: https://github.com/tkuchiki/slp/releases/download/v{{ slp.version }}/slp_linux_{{ machine.arch }}.tar.gz
+    dest: /tmp/slp_linux_{{ machine.arch }}.tar.gz
   register: install_slp
 
 - name: install slp
   unarchive:
     remote_src: yes
-    src: /tmp/slp_linux_amd64.tar.gz
+    src: /tmp/slp_linux_{{ machine.arch }}.tar.gz
     dest: /usr/local/bin/
   when: install_slp.changed
