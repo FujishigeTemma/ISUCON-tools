@@ -1,10 +1,13 @@
 ---
 - name: set aliases
   blockinfile:
-    path: /home/isucon/.bashrc
+    path: "/home/{{ login.username }}/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK [alias]"
     block: |
       alias sc='sudo systemctl'
       alias jc='sudo journalctl'
       alias jcf='sudo journalctl -f -u'
-      alias rt='exec $SHELL -l'
+      source /usr/share/bash-completion/completions/systemctl
+      source /usr/share/bash-completion/completions/journalctl
+      complete -F _systemctl sc
+      complete -F _journalctl jc

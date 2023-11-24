@@ -9,4 +9,3 @@
     - pprotein
     # - docker
     # - phpmyadmin # depends on docker
-    - after-install-msg

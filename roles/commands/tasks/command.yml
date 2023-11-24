@@ -2,15 +2,22 @@
 - name: copy shell scripts
   copy:
     src: cmd
-    dest: /home/isucon/
-    owner: isucon
-    group: isucon
-    mode: '777'
+    dest: "/home/{{ login.username }}/"
+    owner: "{{ login.username }}"
+    group: "{{ login.username }}"
+    mode: "777"
 
-- name: add to bashrc
+- name: add to .profile
   blockinfile:
-    path: /home/isucon/.bashrc
+    path: "/home/{{ login.username }}/.profile"
     marker: "# {mark} ANSIBLE MANAGED BLOCK [shell script]"
     block: |
-      source /home/isucon/cmd/*
-      source /home/isucon/webapp/commands.sh
+      source /home/{{ login.username }}/.bashrc
+
+- name: add to .bashrc
+  blockinfile:
+    path: "/home/{{ login.username }}/.bashrc"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK [shell script]"
+    block: |
+      source /home/{{ login.username }}/cmd/*
+      source /home/{{ login.username }}/webapp/commands.sh

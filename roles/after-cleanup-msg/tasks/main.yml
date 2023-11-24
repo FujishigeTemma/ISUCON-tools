@@ -1,10 +1,10 @@
 - name: TODO
   debug:
     msg:
+      - Perform a restart test.
       - Remove debug/monitor code from app.
       - Stop slow query log.
       - Stop access log.
-      - Perform a restart test.
       - Dump pprotein database.
   tags:
     - never

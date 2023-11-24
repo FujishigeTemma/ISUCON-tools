@@ -13,15 +13,11 @@ Host s2
 Host s3
     Hostname s3.isucon.local
     User isucon
-Host bench
-    Hostname bench.isucon.local
-    User ubuntu
 
 Match User isucon
     IdentityFile ~/.ssh/id_ed25519
     IdentitiesOnly yes
     StrictHostKeyChecking no
-    ProxyCommand sh -c "ssh -W $(/bin/cat /etc/hosts | grep %h | awk '{print $1}'):%p bastion"
     UserKnownHostsFile /dev/null
 
 Host *

@@ -13,7 +13,7 @@
 
 - name: add to PATH
   blockinfile:
-    path: /home/isucon/.bashrc
+    path: "/home/{{ login.username }}/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK [go]"
     block: |
       export GOROOT=/opt/go

@@ -1,6 +1,6 @@
 repository:
-  remote: git@github.com:FujishigeTemma/private-isucon-2023.git
-  dest: /home/isucon/repo
+  remote: git@github.com:FujishigeTemma/isucon12-final-2023.git
+  dest: /home/isucon/webapp
 
 github_users:
   - "sapphi-red"
@@ -9,23 +9,22 @@ github_users:
 
 login:
   username: "isucon"
-  password: "isucon"
 
 go:
-  version: "1.19.5"
-  checksum: "fc0aa29c933cec8d76f5435d859aaf42249aa08c74eb2d154689ae44c08d23b3" # depends on arch
+  version: "1.21.1"
+  checksum: "b3075ae1ce5dab85f89bc7905d1632de23ca196bd8336afd93fa97434cfa55ae" # depends on arch
 
 alp:
-  version: "1.0.10"
+  version: "1.0.21"
 
 slp:
-  version: "0.1.2"
+  version: "0.2.0"
 
 pprotein:
-  version: "1.2.1"
+  version: "1.2.2"
 
 delta:
-  version: "0.15.1"
+  version: "0.16.5"
 
 pma:
   version: "5.2.0"
@@ -34,10 +33,5 @@ mysql:
   user: root
   password: password
 
-systemd:
-  app: isu-go.service
-  services:
-    - pprotein-agent
-
 machine:
-  arch: "arm64"
+  arch: "amd64"

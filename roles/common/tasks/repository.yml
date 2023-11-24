@@ -2,12 +2,11 @@
 - name: add git settings
   copy:
     src: .gitconfig
-    dest: /home/isucon/.gitconfig
-    owner: isucon
-    group: isucon
-
+    dest: "/home/{{ login.username }}/.gitconfig"
+    owner: "{{ login.username }}"
+    group: "{{ login.username }}"
 - name: clone repo
-  become_user: isucon
+  become_user: "{{ login.username }}"
   git:
     repo: "{{ repository.remote }}"
     dest: "{{ repository.dest }}"

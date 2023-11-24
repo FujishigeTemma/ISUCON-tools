@@ -1,0 +1,45 @@
+---
+- name: ensure log file directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ login.username }}"
+    group: "{{ login.username }}"
+    state: directory
+    recurse: yes
+    mode: "777"
+  loop:
+    - "/var/log/nginx"
+    - "/var/log/mysql"
+
+- name: create log files
+  file:
+    path: "{{ item }}"
+    owner: "{{ login.username }}"
+    group: "{{ login.username }}"
+    state: touch
+    mode: "777"
+  loop:
+    - "/var/log/nginx/access.log"
+    - "/var/log/mysql/mysql-slow.log"
+
+- name: ensure cache file directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ login.username }}"
+    group: "{{ login.username }}"
+    state: directory
+    recurse: yes
+    mode: "777"
+  loop:
+    - "/var/cache/nginx"
+
+- name: create cache files
+  file:
+    path: "{{ item }}"
+    owner: "{{ login.username }}"
+    group: "{{ login.username }}"
+    state: touch
+    mode: "777"
+  loop:
+    - "/var/cache/nginx/proxy_cache"
+    - "/var/cache/nginx/proxy_temp"
