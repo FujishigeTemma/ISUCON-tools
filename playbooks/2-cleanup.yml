@@ -5,8 +5,6 @@
     - common
     - commands
     - go
-    - monitor
+    - netdata
     - pprotein
-    # - phpmyadmin # should be executed before docker
-    # - docker
     - after-cleanup-msg

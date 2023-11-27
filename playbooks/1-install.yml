@@ -5,7 +5,5 @@
     - common
     - commands
     - go
-    - monitor
+    - netdata
     - pprotein
-    # - docker
-    # - phpmyadmin # depends on docker
