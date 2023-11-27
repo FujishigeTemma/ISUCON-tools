@@ -6,6 +6,7 @@ User={{ login.username }}
 Group={{ login.username }}
 WorkingDirectory=/home/{{ login.username }}
 ExecStart=/usr/local/bin/pprotein
+Environment=PPROTEIN_GIT_REPOSITORY=/home/{{ login.username }}/webapp
 
 [Install]
 WantedBy=multi-user.target

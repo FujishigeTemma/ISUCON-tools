@@ -7,6 +7,7 @@ Host s1
     Hostname s1.isucon.local
     User isucon
     LocalForward 9000 localhost:9000   # pprotein
+    LocalForward 3306 localhost:3306   # db
 Host s2
     Hostname s2.isucon.local
     User isucon
